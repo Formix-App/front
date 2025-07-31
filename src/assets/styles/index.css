@@ -1,0 +1,34 @@
+/* index.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #F8F8F8; /* Ümumi açıq boz fon */
+}
+
+*{
+  box-sizing: border-box; /* Bütün elementlər üçün box-sizing */
+  list-style: none; 
+  margin: 0; /* Bütün elementlər üçün margin sıfırlanır */
+  text-decoration: none; /* Linklərin alt xəttini silir */
+  font-family: "Poppins", sans-serif; /* Ümumi font ailəsi */
+
+}
+
+/* Dashboard konteyneri üçün stil */
+.dashboardContainer {
+  display: flex;
+  flex-direction: column; /* Header olmadığı üçün bu xüsusiyyət daha az kritikdir, lakin layout üçün saxlana bilər */
+  min-height: 100vh; /* Ekranın tam hündürlüyünü əhatə etsin */
+}
+
+/* Əsas məzmun sahəsi (sidebar və səhifənin yerləşdiyi yer) */
+.mainContentArea {
+  display: flex;
+  flex: 1; /* Qalan boşluğu doldurur */
+}
+
+/* Səhifə məzmununun qablaşdırıcısı üçün stil */
+.pageContentWrapper {
+  flex-grow: 1; /* Qalan üfüqi boşluğu doldurur */
+  padding: 20px; /* Səhifə məzmunu üçün daxili boşluq */
+}

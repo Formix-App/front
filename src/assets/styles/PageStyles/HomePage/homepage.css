@@ -1,0 +1,474 @@
+/* src/assets/styles/PageStyles/HomePage/homepage.css */
+.homePageContainer {
+    padding: 20px;
+    padding-top: 40px;
+    background-color: #F8F8F8; /* Ümumi fon rəngi */
+    min-height: calc(100vh - 40px);
+    border-radius: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    transition: margin-left 0.3s ease-in-out; /* Animasiya üçün transition */
+}
+
+.homePageTitle {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Əsas dashboard grid-i */
+.mainDashboardGrid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+@media (max-width: 992px) {
+    .mainDashboardGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.leftPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.rightPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Summary Cards section */
+.homePageSummaryCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.summaryCard {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.summaryCard:hover {
+    transform: translateY(-8px);
+}
+
+.summaryCardIconContainer {
+    background-color: #E0BBE4;
+    border-radius: 50%;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.summaryCardIcon {
+    color: #6A5ACD;
+}
+
+.summaryCardLabel {
+    color: #888;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.summaryCardValue {
+    color: #333;
+    font-size: 2.2em;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Total Revenue Chart Card */
+.totalRevenueChartCard {
+    background-color: #1a1a2e;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex-grow: 1;
+}
+
+.chartCardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.chartCardTitle {
+    color: #fff;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.chartCardActionButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #bbb;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.chartCardActionButton:hover {
+    background-color: #2e2e4a;
+}
+
+.chartContainer {
+    height: 250px;
+    width: 100%;
+}
+
+/* New Recent Users Card */
+.recentUsersCard {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.recentUsersTitle {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.recentUsersList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recentUserItem {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.recentUserItem:last-child {
+    border-bottom: none;
+}
+
+.userAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.userDetails {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.userName {
+    font-weight: 600;
+    color: #333;
+}
+
+.userStatus {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.userStatus.online {
+    color: #28a745;
+}
+
+.userStatus.offline {
+    color: #dc3545;
+}
+
+/* Recent Activities Card */
+.recentActivitiesCard {
+    background-color: #1a1a2e;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-height: 560px;
+    height: 100%;
+}
+
+.recentActivitiesTitle {
+    color: #fff;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.activitiesList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #bbb;
+}
+
+.activityItem {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #2e2e4a;
+}
+
+.activityItem:last-child {
+    border-bottom: none;
+}
+
+.activityIconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #2e2e4a;
+    border-radius: 50%;
+    color: #957DAD;
+}
+
+.activityDetails {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.activityTitle {
+    font-size: 1em;
+    font-weight: 600;
+    color: #fff;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.activityDescription {
+    font-size: 0.9em;
+    color: #bbb;
+    margin: 0;
+}
+
+.activityTime {
+    font-size: 0.8em;
+    color: #888;
+}
+
+/* User Table Component Styles */
+.homePageUserList {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.userListTitle {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.userTableContainer {
+    overflow-x: auto;
+}
+
+.userTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.userTableHeaderRow {
+    background-color: #E0BBE4;
+    color: #6A5ACD;
+    text-align: left;
+}
+
+.userTableHeaderCell {
+    padding: 15px;
+    font-weight: 600;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.userTableRow {
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.userTableRow:last-child {
+    border-bottom: none;
+}
+
+.userTableRow:nth-child(even) {
+    background-color: #FBFBFB;
+}
+
+.userTableCell {
+    padding: 12px 15px;
+    color: #555;
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+
+.userProfileCell {
+    width: 60px;
+    text-align: center;
+}
+
+.userProfileImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #E0BBE4;
+}
+
+.userProfilePlaceholderIcon {
+    color: #957DAD;
+}
+
+/* Todo App Component Styles */
+.homePageTodoApp {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.todoAppTitle {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.todoInputContainer {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.todoInputField {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #333;
+    outline: none;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.todoInputField:focus {
+    border-color: #957DAD;
+    box-shadow: 0 0 0 3px rgba(149, 125, 173, 0.2);
+}
+
+.addTodoButton {
+    background-color: #957DAD;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.addTodoButton:hover {
+    background-color: #6A5ACD;
+    transform: translateY(-2px);
+}
+
+.addTodoButton:active {
+    transform: translateY(0);
+}
+
+.todoList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todoItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    border-bottom: 1px solid #f5f5f5;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.todoItem:last-child {
+    border-bottom: none;
+}
+
+.todoItemCompleted {
+    background-color: #F8F8F8;
+}
+
+.todoItemCompleted .todoText {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.todoText {
+    flex-grow: 1;
+    color: #333;
+    font-size: 1em;
+}
+
+.todoActions {
+    display: flex;
+    gap: 5px;
+}
+
+.todoActionButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.todoActionButton:hover {
+    background-color: #eee;
+}
+
+.todoActionButtonToggle {
+    color: #28A745;
+}
+
+.todoActionButtonDelete {
+    color: #DC3545;
+}

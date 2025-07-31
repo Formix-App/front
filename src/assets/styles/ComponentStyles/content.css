@@ -1,0 +1,17 @@
+/* components/Content.css */
+.dashboard-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #F8F8F8; /* Match body background */
+}
+
+.dashboard-content h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}

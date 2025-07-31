@@ -1,0 +1,372 @@
+/* src/assets/styles/ComponentStyles/statistics.css */
+
+/* Main container for the statistics section */
+.homePageStatisticsSection {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 992px) {
+  .homePageStatisticsSection {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* New container for the left side cards */
+.leftSideContent {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* --- Total Revenue Chart Card (Reverted to light theme, chart dark) --- */
+.totalRevenueChartCard {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.chartCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.chartCardTitle {
+  color: #333;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.chartCardActionButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+  padding: 5px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.chartCardActionButton:hover {
+  background-color: #f0f0f0;
+}
+
+.chartContainer {
+  height: 250px;
+  width: 100%;
+}
+
+/* Chart container inside the card to keep the chart dark */
+.totalRevenueChartCard .chartContainer {
+  background-color: #1a1a2e; /* Dark background for the chart area */
+  border-radius: 8px;
+  padding: 20px;
+  height: 250px;
+}
+
+/* --- New Recent Users Card --- */
+.recentUsersCard {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.recentUsersTitle {
+  color: #333;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.recentUsersList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recentUserItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.recentUserItem:last-child {
+  border-bottom: none;
+}
+
+.userAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userDetails {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-weight: 600;
+  color: #333;
+}
+
+.userStatus {
+  font-size: 0.9em;
+  color: #888;
+}
+
+.userStatus.online {
+  color: #28a745; /* Green for online */
+}
+
+.userStatus.offline {
+  color: #dc3545; /* Red for offline */
+}
+
+/* --- Right Side Cards Container --- */
+.rightSideCards {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* --- Calendar Card (Light theme with dark internal elements) --- */
+.calendarCard {
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.calendarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendarMonthYear {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #333;
+  width: 100%;
+  text-align: center;
+}
+
+.calendarArrowButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #999;
+  padding: 5px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.calendarArrowButton:hover {
+  background-color: #f0f0f0;
+}
+
+.calendarDaysOfWeek {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-bottom: 15px;
+  color: #888;
+  font-size: 0.8em;
+  text-transform: uppercase;
+}
+
+.calendarDates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.calendarDate {
+  padding: 10px 0;
+  border-radius: 8px;
+  color: #555;
+  font-weight: 500;
+  background-color: #F8F8F8;
+  transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+}
+
+.calendarDate:hover {
+  background-color: #eee;
+}
+
+.calendarDateActive {
+  background-color: #957DAD !important;
+  color: white !important;
+  font-weight: bold !important;
+  box-shadow: 0 2px 5px rgba(149, 125, 173, 0.3);
+}
+
+
+/* --- Community Growth Card --- */
+.communityGrowthCard {
+  background-color: #1a1a2e; /* Dark background */
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.communityGrowthTitle {
+  color: #fff;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.communityGrowthContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.growthIndicator {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #28A745;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.growthArrowIcon {
+  color: #2ECC71;
+  transform: rotate(-45deg);
+}
+
+.growthPercentage {
+  font-size: 1.1em;
+  color: #fff;
+}
+
+.growthText {
+  color: #bbb;
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
+.growthCircleChart {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: conic-gradient(#957DAD var(--progress, 0%), #2e2e4a var(--progress, 0%));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.circleChartInner {
+  width: 60px;
+  height: 60px;
+  background-color: #1a1a2e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.circleChartPercentage {
+  position: absolute;
+  z-index: 2;
+}
+
+
+/* --- Recent Activities Card --- */
+.recentActivitiesCard {
+  background-color: #1a1a2e;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  height: 100%;
+}
+
+.recentActivitiesTitle {
+  color: #fff;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.activitiesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #bbb;
+}
+
+.activityItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #2e2e4a;
+}
+
+.activityItem:last-child {
+  border-bottom: none;
+}
+
+.activityIconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #2e2e4a;
+  border-radius: 50%;
+  color: #957DAD;
+}
+
+.activityDetails {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.activityTitle {
+  font-size: 1em;
+  font-weight: 600;
+  color: #fff;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.activityDescription {
+  font-size: 0.9em;
+  color: #bbb;
+  margin: 0;
+}
+
+.activityTime {
+  font-size: 0.8em;
+  color: #888;
+}

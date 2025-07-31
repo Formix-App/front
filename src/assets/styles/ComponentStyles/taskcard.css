@@ -1,0 +1,42 @@
+/* components/TaskCard.css */
+.task-card {
+  background-color: #FFFFFF; /* White */
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out;
+}
+
+.task-card:hover {
+  transform: translateY(-5px);
+}
+
+.task-card h3 {
+  color: #6A5ACD; /* A slightly darker purple for headings */
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.task-card p {
+  color: #666;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.task-card p span {
+  font-weight: bold;
+}
+
+/* Status specific styling */
+.status-in-progress {
+  color: #FFC107; /* Orange */
+}
+
+.status-pending {
+  color: #17A2B8; /* Teal */
+}
+
+.status-completed {
+  color: #28A745; /* Green */
+}

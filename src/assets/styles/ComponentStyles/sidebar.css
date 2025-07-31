@@ -1,0 +1,323 @@
+/* components/Sidebar/Sidebar.css */
+.dashboardSidebar {
+  width: 250px; /* Normal vəziyyətdə eni */
+  background-color: #FFFFFF; /* Ağ fon */
+  padding: 20px 0;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05); /* Yüngül kölgə */
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease-in-out; /* En dəyişikliyi üçün animasiya */
+  flex-shrink: 0; /* Sidebar'ın daralmasının qarşısını alır */
+  border-radius: 0 15px 15px 0; /* Yüngül yuvarlaq künclər */
+  position: relative; /* Düymənin mütləq yerləşməsi üçün */
+}
+
+.dashboardSidebarCollapsed {
+  width: 80px; /* Yığılmış vəziyyətdə eni */
+}
+
+.sidebarHeader {
+  display: flex;
+  justify-content: flex-end; /* Düyməni sağa çəkir */
+  align-items: center;
+  padding: 0 20px 20px 20px;
+  margin-bottom: 20px;
+  position: relative; /* Düymənin içində yerləşməsi üçün */
+}
+
+.sidebarLogoContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Loqo və başlıq arasında boşluq */
+  /* Sidebar açıq olduqda görünür */
+  position: absolute; /* Header içində mütləq yerləşmə */
+  left: 20px; /* Soldan məsafə */
+  top: 0;
+  height: 100%; /* Header'ın hündürlüyünü əhatə etsin */
+}
+
+.sidebarLogo {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px; /* Yuvarlaq künclər */
+}
+
+.sidebarTitle {
+  color: #333;
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sidebarToggleButton {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #6A5ACD; /* Düymənin ikon rəngi */
+  padding: 5px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease-in-out, right 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute; /* Header içində mütləq yerləşmə */
+  top: -5px; /* Yuxarıdan məsafə - normal vəziyyətdə */
+  right: 10px; /* Normal vəziyyətdə sidebar'ın içində */
+  z-index: 10; /* Digər elementlərin üzərində olsun */
+}
+
+.sidebarToggleButton:hover {
+  background-color: #E0E0E0; /* Hoverdə bir qədər tündləşir */
+}
+
+.sidebarToggleIcon {
+  transition: transform 0.3s ease-in-out; /* Oxun fırlanması üçün animasiya */
+}
+
+/* Section başlıqları */
+.sidebarSectionTitle {
+  color: #888;
+  font-size: 0.75em;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 15px 20px 5px 20px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.dashboardSidebarCollapsed .sidebarSectionTitle {
+  opacity: 0; /* Yığılmış vəziyyətdə başlıqları gizlədir */
+  height: 0; /* Boşluğu da sıfırlayır */
+  padding: 0;
+  margin: 0;
+}
+
+.sidebarNavList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebarNavItem {
+  margin-bottom: 2px;
+}
+
+.sidebarLink {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #555;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, padding 0.2s ease-in-out, border-radius 0.2s ease-in-out, margin 0.2s ease-in-out;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 0.95em;
+  font-weight: 500;
+}
+
+/* Hover vəziyyəti - bozmtul rəng */
+.sidebarLink:hover {
+  background-color: #F0F0F0; /* Bozmtul rəng */
+  color: #555; /* Mətn rəngini dəyişmə */
+  font-weight: 500; /* Qalınlığı dəyişmə */
+  border-radius: 8px; /* Yuvarlaq künclər */
+  margin: 0 10px; /* Sağdan və soldan boşluq verir */
+  padding: 12px 10px 12px 20px; /* Padding-i tənzimləyir */
+}
+
+/* Aktiv vəziyyət */
+.sidebarLinkActive {
+  background-color: #6A5ACD; /* Tünd bənövşəyi fon */
+  color: white;
+  font-weight: 600; /* Aktiv mətn daha qalın */
+  border-radius: 8px; /* Yuvarlaq künclər */
+  margin: 0 10px; /* Sağdan və soldan boşluq verir */
+  padding: 12px 10px 12px 20px; /* Padding-i tənzimləyir */
+}
+
+/* Aktiv element üzərində hover effekti olmasın */
+.sidebarLinkActive:hover {
+  background-color: #6A5ACD; /* Aktiv rəngi saxla */
+  color: white; /* Mətn rəngini saxla */
+  cursor: default; /* Kursoru dəyişmə */
+  font-weight: 600; /* Aktiv mətn daha qalın */
+
+  
+}
+
+
+.sidebarIcon {
+  margin-right: 15px;
+  min-width: 20px; /* İkonun ölçüsünü sabit saxlayır */
+}
+
+.dashboardSidebarCollapsed .sidebarIcon {
+  margin-right: 0;
+}
+
+.dashboardSidebarCollapsed .sidebarLink {
+  justify-content: center; /* Yığılmış vəziyyətdə ikonları mərkəzləşdirir */
+  padding: 12px; /* Yığılmış vəziyyətdə padding-i azaldır */
+  margin: 0 10px; /* Yığılmış vəziyyətdə də margin saxlayır */
+}
+
+/* Yığılmış vəziyyətdə başlığı gizlədir (əgər JSX-də gizlədilməyibsə) */
+.dashboardSidebarCollapsed .sidebarTitle {
+  display: none;
+}
+
+/* Yığılmış vəziyyətdə loqonu gizlədir */
+.dashboardSidebarCollapsed .sidebarLogoContainer {
+  display: none; /* Loqonu tamamilə gizlədir */
+}
+
+/* Yığılmış vəziyyətdə düymənin yerini tənzimlə */
+.dashboardSidebarCollapsed .sidebarToggleButton {
+  right: 21px; /* Yığılmış vəziyyətdə sidebar'dan kənara çıxır */
+  top: -5px; /* Yuxarıdan məsafə - yığılmış vəziyyətdə */
+}
+
+/* Sidebar'ın aşağı hissəsi */
+.sidebarBottom {
+  margin-top: auto; /* Yuxarıdakı məzmunu yuxarıya itələyir */
+  padding: 20px 10px; /* İç boşluq */
+  border-top: 1px solid #eee; /* Yuxarı sərhəd */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Elementləri mərkəzləşdirir */
+  gap: 15px; /* Elementlər arasında boşluq */
+}
+
+.dashboardSidebarCollapsed .sidebarBottom {
+  padding: 15px 0; /* Yığılmış vəziyyətdə padding-i azaldır */
+}
+
+.themeToggleWrapper{
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Tema keçidi konteyneri */
+.themeToggleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Mərkəzləşdirir */
+  border: 1px solid #E0E0E0; /* Açıq boz border */
+  border-radius: 20px; /* Borderin yuvarlaq küncləri */
+  padding: 5px; /* Border və içindəki elementlər arasında boşluq */
+  box-sizing: border-box; /* Padding və border enə daxil edilsin */
+}
+
+.themeToggleContainerCollapsed {
+  justify-content: center; /* Yığılmış vəziyyətdə də mərkəzləşdirir */
+  padding: 0; /* Yığılmış vəziyyətdə padding-i sıfırla */
+  border: none; /* Yığılmış vəziyyətdə border olmasın */
+}
+
+.themeToggleButton {
+  width: 80px; /* Keçidin eni */
+  height: 40px; /* Keçidin hündürlüyü */
+  border-radius: 20px; /* Tamamilə yuvarlaq */
+  border: none; /* Öz borderi olmasın, konteynerdə var */
+  cursor: pointer;
+  position: relative;
+  background-color: transparent; /* Fon rəngi şəffaf olsun */
+  padding: 0;
+  overflow: hidden; /* Sürüşən elementin kənara çıxmasını gizlədir */
+  display: flex; /* İkonları və sürüşəni yerləşdirmək üçün */
+  align-items: center;
+  justify-content: space-between; /* İkonları kənarlara itələyir */
+}
+
+.themeToggleSlider {
+  position: absolute;
+  top: 5px; /* Düymənin içində yuxarıdan məsafə */
+  left: 5px; /* Başlanğıc mövqeyi (light mode) */
+  width: 30px; /* Sürüşən dairənin eni */
+  height: 30px; /* Sürüşən dairənin hündürlüyü */
+  background-color: #6A5ACD; /* Sürüşən dairənin rəngi */
+  border-radius: 50%; /* Dairəvi */
+  transition: transform 0.3s ease-in-out; /* Sürüşmə animasiyası */
+  z-index: 1; /* İkonların altında olsun */
+}
+
+.themeToggleButton.themeToggleButtonDark .themeToggleSlider {
+  transform: translateX(40px); /* Dark mode-da sağa sürüşdürür (80px - 30px - 5px - 5px = 40px) */
+}
+
+.themeIcon {
+  position: absolute; /* İkonlar mütləq yerləşsin */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2; /* İkonlar sürüşən dairənin üzərində olsun */
+  color: #999; /* Aktiv olmayan ikon rəngi */
+  transition: color 0.3s ease-in-out; /* Rəng dəyişikliyi üçün animasiya */
+}
+
+.themeIconSun {
+  left: 10px; /* Günəş ikonunun mövqeyi (daha yaxşı ortalamaq üçün) */
+}
+
+.themeIconMoon {
+  right: 10px; /* Ay ikonunun mövqeyi (daha yaxşı ortalamaq üçün) */
+}
+
+/* Aktiv ikon rəngi */
+.themeToggleButton:not(.themeToggleButtonDark) .themeIconSun {
+  color: #FFFFFF; /* Light mode-da günəş ağ olsun */
+}
+
+.themeToggleButton.themeToggleButtonDark .themeIconMoon {
+  color: #FFFFFF; /* Dark mode-da ay ağ olsun */
+}
+
+/* Log out linki */
+.sidebarLogout {
+  margin-top: 10px; /* Temadan yuxarıdan boşluq */
+  width: 100%; /* Tam eni tutur */
+}
+
+.sidebarLogout .sidebarLink {
+  padding: 12px 20px; /* Normal link padding-i */
+  justify-content: flex-start; /* Mətni sola hizala */
+}
+
+.dashboardSidebarCollapsed .sidebarLogout .sidebarLink {
+  justify-content: center; /* Yığılmış vəziyyətdə ikonu mərkəzləşdirir */
+  padding: 12px; /* Yığılmış vəziyyətdə padding-i azaldır */
+}
+
+/* collapsed hal üçün tema düyməsi */
+.themeToggleIconButton {
+  background-color: #ffffff; /* Ağ arxa fon */
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.themeToggleIconButton:hover {
+  background-color: #f0f0f0; /* Hover effekti */
+}
+
+.themeToggleWrapperCollapsed {
+  display: flex;
+  justify-content: center; /* collapsed halında ortada saxlamaq üçün */
+  width: 100%;
+}
+
+.themeToggleIcon {
+  color: #6A5ACD;
+}
