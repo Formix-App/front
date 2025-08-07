@@ -30,5 +30,4 @@ body {
 /* Səhifə məzmununun qablaşdırıcısı üçün stil */
 .pageContentWrapper {
   flex-grow: 1; /* Qalan üfüqi boşluğu doldurur */
-  padding: 20px; /* Səhifə məzmunu üçün daxili boşluq */
 }

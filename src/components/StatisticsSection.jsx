@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import {
   ArrowUpRight, ChevronLeft, ChevronRight, ArrowUp, UserPlus, FileText, CheckCircle
 } from 'lucide-react';
-import { Line, Bar } from 'react-chartjs-2';
+import { Chart } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -16,28 +16,32 @@ import {
   Tooltip,
   Legend,
   Filler,
+  LineController,
+  BarController,
 } from 'chart.js';
 
-// Register the components you need
+// ✅ İSTİFADƏ OLUNAN KOMPONENTLƏRİ REGİSTER ET
 ChartJS.register(
   CategoryScale,
   LinearScale,
   PointElement,
   LineElement,
   BarElement,
+  LineController,
+  BarController,
   Title,
   Tooltip,
   Legend,
   Filler,
 );
 
+// Stil faylı
+import "../assets/styles/ComponentStyles/statistics.css";
+
 const months = [
   "January", "February", "March", "April", "May", "June", "July",
   "August", "September", "October", "November", "December"
 ];
-
-// Import styles
-import "../assets/styles/ComponentStyles/statistics.css"
 
 function StatisticsSection({ revenueChartData = [] }) {
   const today = new Date();
@@ -57,19 +61,14 @@ function StatisticsSection({ revenueChartData = [] }) {
     const days = [];
     const totalDays = new Date(year, month + 1, 0).getDate();
     const startDay = new Date(year, month, 1).getDay();
-
     const startingOffset = startDay === 0 ? 6 : startDay - 1;
 
-    for (let i = 0; i < startingOffset; i++) {
-        days.push(null);
-    }
+    for (let i = 0; i < startingOffset; i++) days.push(null);
+    for (let day = 1; day <= totalDays; day++) days.push(day);
 
-    for (let day = 1; day <= totalDays; day++) {
-      days.push(day);
-    }
     return days;
   };
-  
+
   const growthPercentage = 65;
   const daysOfWeek = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
 
@@ -86,9 +85,7 @@ function StatisticsSection({ revenueChartData = [] }) {
         backgroundColor: (context) => {
           const chart = context.chart;
           const { ctx, chartArea } = chart;
-          if (!chartArea) {
-            return null;
-          }
+          if (!chartArea) return null;
           const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
           gradient.addColorStop(0, 'rgba(149, 125, 173, 0.0)');
           gradient.addColorStop(1, 'rgba(149, 125, 173, 0.5)');
@@ -115,38 +112,21 @@ function StatisticsSection({ revenueChartData = [] }) {
     maintainAspectRatio: false,
     scales: {
       x: {
-        grid: {
-          display: false,
-          drawBorder: false,
-        },
-        ticks: {
-          color: '#bbb',
-          font: {
-            size: 12
-          }
-        },
+        grid: { display: false, drawBorder: false },
+        ticks: { color: '#bbb', font: { size: 12 } }
       },
       y: {
-        grid: {
-          color: 'rgba(255, 255, 255, 0.1)',
-          drawBorder: false,
-        },
+        grid: { color: 'rgba(255, 255, 255, 0.1)', drawBorder: false },
         ticks: {
           color: '#bbb',
-          callback: function(value) {
-            return `${value / 1000}K`;
-          },
+          callback: value => `${value / 1000}K`,
           stepSize: 1000,
-          font: {
-            size: 12
-          }
+          font: { size: 12 }
         },
       },
     },
     plugins: {
-      legend: {
-        display: false,
-      },
+      legend: { display: false },
       tooltip: {
         mode: 'index',
         intersect: false,
@@ -156,41 +136,22 @@ function StatisticsSection({ revenueChartData = [] }) {
       },
     },
   };
-  
+
   const activities = [
-    {
-      id: 1,
-      icon: <UserPlus size={20} />,
-      title: 'New user registered',
-      description: 'A new member has joined the community.',
-      time: 'Just now'
-    },
-    {
-      id: 2,
-      icon: <FileText size={20} />,
-      title: 'Report generated',
-      description: 'Monthly revenue report has been created.',
-      time: '15 min ago'
-    },
-    {
-      id: 3,
-      icon: <CheckCircle size={20} />,
-      title: 'Task completed',
-      description: 'The dashboard redesign task is finished.',
-      time: '1 hour ago'
-    },
+    { id: 1, icon: <UserPlus size={20} />, title: 'New user registered', description: 'A new member has joined the community.', time: 'Just now' },
+    { id: 2, icon: <FileText size={20} />, title: 'Report generated', description: 'Monthly revenue report has been created.', time: '15 min ago' },
+    { id: 3, icon: <CheckCircle size={20} />, title: 'Task completed', description: 'The dashboard redesign task is finished.', time: '1 hour ago' },
   ];
 
   const recentUsers = [
-    { id: 1, name: 'John Doe', status: 'Online', avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80' },
-    { id: 2, name: 'Jane Smith', status: 'Offline', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80' },
-    { id: 3, name: 'Alex Johnson', status: 'Online', avatar: 'https://images.unsplash.com/photo-1544723795-3fb6469f52b6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80' },
+    { id: 1, name: 'John Doe', status: 'Online', avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=1400&q=80' },
+    { id: 2, name: 'Jane Smith', status: 'Offline', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=1400&q=80' },
+    { id: 3, name: 'Alex Johnson', status: 'Online', avatar: 'https://images.unsplash.com/photo-1544723795-3fb6469f52b6?auto=format&fit=crop&w=1400&q=80' },
   ];
 
   return (
     <div className="homePageStatisticsSection">
       <div className="leftSideContent">
-        {/* Total Revenue Qrafiki */}
         <div className="totalRevenueChartCard">
           <div className="chartCardHeader">
             <h2 className="chartCardTitle">Total Revenue</h2>
@@ -199,11 +160,10 @@ function StatisticsSection({ revenueChartData = [] }) {
             </button>
           </div>
           <div className="chartContainer">
-            <Bar data={chartData} options={chartOptions} />
+            <Chart type="bar" data={chartData} options={chartOptions} />
           </div>
         </div>
 
-        {/* New Recent Users Card */}
         <div className="recentUsersCard">
           <h3 className="recentUsersTitle">Recent Users</h3>
           <ul className="recentUsersList">
@@ -220,9 +180,7 @@ function StatisticsSection({ revenueChartData = [] }) {
         </div>
       </div>
 
-      {/* Sağ Tərəf Kartları */}
       <div className="rightSideCards">
-        {/* Təqvim Kartı */}
         <div className="calendarCard">
           <div className="calendarHeader">
             <button className="calendarArrowButton" onClick={() => handleMonthChange(-1)}>
@@ -251,7 +209,6 @@ function StatisticsSection({ revenueChartData = [] }) {
           </div>
         </div>
 
-        {/* Community Growth Kartı */}
         <div className="communityGrowthCard">
           <h3 className="communityGrowthTitle">Community growth</h3>
           <div className="communityGrowthContent">
@@ -268,7 +225,6 @@ function StatisticsSection({ revenueChartData = [] }) {
           </div>
         </div>
 
-        {/* Recent Activities Card */}
         <div className="recentActivitiesCard">
           <h3 className="recentActivitiesTitle">Recent Activities</h3>
           <ul className="activitiesList">

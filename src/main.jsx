@@ -9,12 +9,15 @@ import Sidebar from "./components/Sidebar.jsx"
 
 // Səhifələri import edin
 import HomePage from './pages/HomePage/HomePage.jsx';
-// Gələcəkdə əlavə edəcəyiniz digər səhifələr
-// import TasksPage from './pages/TasksPage/TasksPage.jsx';
+import TasksPage from './pages/TasksPage/TasksPage.jsx';
 // import ProjectsPage from './pages/ProjectsPage/ProjectsPage.jsx';
 
 // Global CSS faylını import edin
 import './assets/styles/index.css';
+import ClientsPage from './pages/ClientsPage/ClientsPage.jsx';
+import EmployeePage from './pages/EmployeePage/EmployeePage.jsx';
+import AddEmployee from './pages/EmployeePage/AddEmployee.jsx';
+import ChatPage from './pages/ChatPage/ChatPage.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -36,8 +39,12 @@ createRoot(document.getElementById('root')).render(
               <Route path="/" element={<HomePage />} />
 
               {/* Əlavə Səhifə Yolları (Gələcək üçün nümunələr) */}
-              {/* <Route path="/tasks" element={<TasksPage />} /> */}
+              <Route path="/tasks" element={<TasksPage />} />
               {/* <Route path="/projects" element={<ProjectsPage />} /> */}
+              <Route path="/clients" element={<ClientsPage />} />
+              <Route path="/employee" element={<EmployeePage />} />
+              <Route path="/employee/add" element={<AddEmployee />} />
+              <Route path="/chat" element={<ChatPage />} />
             </Routes>
           </div>
         </div>

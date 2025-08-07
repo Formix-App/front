@@ -38,74 +38,80 @@ function Sidebar() {
       </div>
 
       <nav className="sidebarNav">
-        <h3 className="sidebarSectionTitle">MENU</h3>
+        <h3 className="sidebarSectionTitle">Menyu</h3>
         <ul className="sidebarNavList">
           <li className="sidebarNavItem">
             <NavLink to="/" className={({ isActive }) => isActive ? "sidebarLink sidebarLinkActive" : "sidebarLink"}>
               <LayoutDashboard className="sidebarIcon" size={20} />
-              {!isCollapsed && <span className="sidebarLinkText">Dashboard</span>}
+              {!isCollapsed && <span className="sidebarLinkText">Panel</span>}
             </NavLink>
           </li>
           <li className="sidebarNavItem">
             <NavLink to="/tasks" className={({ isActive }) => isActive ? "sidebarLink sidebarLinkActive" : "sidebarLink"}>
               <ClipboardList className="sidebarIcon" size={20} />
-              {!isCollapsed && <span className="sidebarLinkText">Tasks</span>}
+              {!isCollapsed && <span className="sidebarLinkText">Tapşırıqlar</span>}
             </NavLink>
           </li>
           <li className="sidebarNavItem">
             <NavLink to="/projects" className={({ isActive }) => isActive ? "sidebarLink sidebarLinkActive" : "sidebarLink"}>
               <Briefcase className="sidebarIcon" size={20} />
-              {!isCollapsed && <span className="sidebarLinkText">Projects</span>}
+              {!isCollapsed && <span className="sidebarLinkText">Layihələr</span>}
             </NavLink>
           </li>
           <li className="sidebarNavItem">
             <NavLink to="/clients" className={({ isActive }) => isActive ? "sidebarLink sidebarLinkActive" : "sidebarLink"}>
               <Users className="sidebarIcon" size={20} />
-              {!isCollapsed && <span className="sidebarLinkText">Clients</span>}
+              {!isCollapsed && <span className="sidebarLinkText">Müştərilər</span>}
+            </NavLink>
+          </li>
+          <li className="sidebarNavItem">
+            <NavLink to="/employee" className={({ isActive }) => isActive ? "sidebarLink sidebarLinkActive" : "sidebarLink"}>
+              <Users className="sidebarIcon" size={20} />
+              {!isCollapsed && <span className="sidebarLinkText">İşçilər</span>}
             </NavLink>
           </li>
           <li className="sidebarNavItem">
             <NavLink to="/reports" className={({ isActive }) => isActive ? "sidebarLink sidebarLinkActive" : "sidebarLink"}>
               <BarChart2 className="sidebarIcon" size={20} />
-              {!isCollapsed && <span className="sidebarLinkText">Reports</span>}
+              {!isCollapsed && <span className="sidebarLinkText">Hesabatlar</span>}
             </NavLink>
           </li>
         </ul>
 
-        <h3 className="sidebarSectionTitle">FINANCIAL</h3>
+        <h3 className="sidebarSectionTitle">Maliyyə</h3>
         <ul className="sidebarNavList">
           <li className="sidebarNavItem">
             <NavLink to="/transactions" className={({ isActive }) => isActive ? "sidebarLink sidebarLinkActive" : "sidebarLink"}>
               <DollarSign className="sidebarIcon" size={20} />
-              {!isCollapsed && <span className="sidebarLinkText">Transactions</span>}
+              {!isCollapsed && <span className="sidebarLinkText">Əməliyyatlar</span>}
             </NavLink>
           </li>
           <li className="sidebarNavItem">
             <NavLink to="/invoices" className={({ isActive }) => isActive ? "sidebarLink sidebarLinkActive" : "sidebarLink"}>
               <Receipt className="sidebarIcon" size={20} />
-              {!isCollapsed && <span className="sidebarLinkText">Invoices</span>}
+              {!isCollapsed && <span className="sidebarLinkText">Qaimələr</span>}
             </NavLink>
           </li>
         </ul>
 
-        <h3 className="sidebarSectionTitle">TOOLS</h3>
+        <h3 className="sidebarSectionTitle">Alətlər</h3>
         <ul className="sidebarNavList">
           <li className="sidebarNavItem">
             <NavLink to="/settings" className={({ isActive }) => isActive ? "sidebarLink sidebarLinkActive" : "sidebarLink"}>
               <Settings className="sidebarIcon" size={20} />
-              {!isCollapsed && <span className="sidebarLinkText">Settings</span>}
+              {!isCollapsed && <span className="sidebarLinkText">Ayarlar</span>}
             </NavLink>
           </li>
           <li className="sidebarNavItem">
-            <NavLink to="/feedback" className={({ isActive }) => isActive ? "sidebarLink sidebarLinkActive" : "sidebarLink"}>
+            <NavLink to="/chat" className={({ isActive }) => isActive ? "sidebarLink sidebarLinkActive" : "sidebarLink"}>
               <MessageSquare className="sidebarIcon" size={20} />
-              {!isCollapsed && <span className="sidebarLinkText">Feedback</span>}
+              {!isCollapsed && <span className="sidebarLinkText">Chat</span>}
             </NavLink>
           </li>
           <li className="sidebarNavItem">
             <NavLink to="/help" className={({ isActive }) => isActive ? "sidebarLink sidebarLinkActive" : "sidebarLink"}>
               <HelpCircle className="sidebarIcon" size={20} />
-              {!isCollapsed && <span className="sidebarLinkText">Help</span>}
+              {!isCollapsed && <span className="sidebarLinkText">Kömək</span>}
             </NavLink>
           </li>
         </ul>
@@ -115,16 +121,16 @@ function Sidebar() {
         <li className={`sidebarNavItem sidebarLogout ${isCollapsed ? 'sidebarLogoutCollapsed' : ''}`}>
           <NavLink to="/logout" className="sidebarLink">
             <LogOut className="sidebarIcon" size={20} />
-            {!isCollapsed && <span className="sidebarLinkText">Log out</span>}
+            {!isCollapsed && <span className="sidebarLinkText">Çıxış</span>}
           </NavLink>
         </li>
 
-        {/* Tema keçidi */}
-<div className={`themeToggleWrapper ${isCollapsed ? 'themeToggleWrapperCollapsed' : ''}`}>        {isCollapsed ? (
+        <div className={`themeToggleWrapper ${isCollapsed ? 'themeToggleWrapperCollapsed' : ''}`}>
+          {isCollapsed ? (
             <button
               onClick={toggleTheme}
               className="themeToggleIconButton"
-              title="Toggle theme"
+              title="Mövzunu dəyiş"
             >
               {isDarkMode ? (
                 <Sun size={20} className="themeToggleIcon" />
@@ -144,7 +150,6 @@ function Sidebar() {
               </button>
             </div>
           )}
-
         </div>
       </div>
     </aside>

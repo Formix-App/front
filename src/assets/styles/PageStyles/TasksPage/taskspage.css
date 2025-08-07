@@ -1,0 +1,794 @@
+/* src/assets/styles/PageStyles/TasksPage/taskspage.css */
+
+.tasks-page {
+  padding: 24px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 32px;
+  margin-left: 4px;
+}
+
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.user-column {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.user-avatar-container {
+  position: relative;
+}
+
+.user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.user-avatar.active {
+  border-color: #10b981;
+}
+
+.user-avatar.passive {
+  border-color: #ef4444;
+}
+
+.user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.status-dot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.status-dot.active {
+  background-color: #10b981;
+}
+
+.status-dot.passive {
+  background-color: #ef4444;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a202c;
+  margin: 0 0 4px 0;
+}
+
+.task-input-section {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.task-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: #f9fafb;
+  transition: all 0.2s ease;
+}
+
+.task-input:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.add-task-btn {
+  background: #8b5cf6;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.add-task-btn:hover {
+  background: #7c3aed;
+  transform: translateY(-1px);
+}
+
+/* Updated Tasks List Styles */
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 350px;
+  max-width: 350px;
+  min-height: 300px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Custom scrollbar for tasks-list */
+.tasks-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tasks-list::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.tasks-list::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 4px;
+}
+
+.tasks-list::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8;
+}
+
+/* Corrected Task Item Styles */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+  gap: 12px; /* elementlər arasında boşluq */
+  flex-wrap: nowrap; /* yazının yanında qalsın, bükülməsin */
+}
+
+.task-text {
+  flex: 1 1 auto;
+  font-size: 0.9rem;
+  color: #374151;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: pre-wrap; /* << BU vacibdir uzun sözləri sətirə bükmək üçün */
+  padding-right: 8px;
+  min-width: 0; /* prevent overflowing */
+}
+
+
+.task-item:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.task-item.completed {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+/* Corrected Task Text Styles for wrapping */
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+.task-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0; /* Prevents actions from shrinking */
+}
+
+.task-btn {
+  background: none;
+  border: none;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.complete-btn {
+  color: #10b981;
+}
+
+.complete-btn:hover {
+  background: #ecfdf5;
+}
+
+.complete-btn.completed {
+  background: #10b981;
+  color: white;
+}
+
+.delete-btn {
+  color: #ef4444;
+}
+
+.delete-btn:hover {
+  background: #fef2f2;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .users-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .users-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tasks-page {
+    padding: 16px;
+  }
+}
+
+.section-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 40px 0;
+  border-radius: 1px;
+}
+
+.general-tasks-section,
+.projects-section {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+}
+
+.task-count {
+  background: #8b5cf6;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.task-input-container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.task-input-container .task-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f9fafb;
+  transition: all 0.2s ease;
+}
+
+.task-input-container .task-input:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.add-button,
+.new-project-button {
+  background: #8b5cf6;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.add-button:hover,
+.new-project-button:hover {
+  background: #7c3aed;
+  transform: translateY(-1px);
+}
+
+.general-tasks-section .tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-item.general {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.task-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100% !important;
+}
+
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.task-author {
+  font-weight: 600;
+  color: #4a5568;
+  font-size: 0.875rem;
+}
+
+.task-time {
+  color: #9ca3af;
+  font-size: 0.75rem;
+}
+
+.mention {
+  background: #8b5cf6;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.assigned-to {
+  margin-top: 8px;
+}
+
+.assignee {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  width: fit-content;
+}
+
+.assignee-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.assignee span {
+  font-size: 0.875rem;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-button.complete {
+  color: #10b981;
+}
+
+.action-button.complete:hover {
+  background: #ecfdf5;
+}
+
+.action-button.delete {
+  color: #ef4444;
+}
+
+.action-button.delete:hover {
+  background: #fef2f2;
+}
+
+/* Projects Section */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.project-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+}
+
+.project-menu {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.project-menu:hover {
+  background: #f1f5f9;
+  color: #4a5568;
+}
+
+.project-description {
+  color: #718096;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.project-progress {
+  margin-bottom: 16px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+  color: #4a5568;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #8b5cf6;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.project-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-members {
+  display: flex;
+  gap: -8px;
+}
+
+.member-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  margin-left: -8px;
+  transition: all 0.2s ease;
+}
+
+.member-avatar:first-child {
+  margin-left: 0;
+}
+
+.member-avatar:hover {
+  transform: scale(1.1);
+  z-index: 10;
+  position: relative;
+}
+
+.project-due {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #718096;
+  font-size: 0.875rem;
+}
+
+.more-members {
+  width: 32px;
+  height: 32px;
+  background-color: #e2e8f0;
+  color: #4a5568;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-left: -8px;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.more-members:hover {
+  background-color: #cbd5e1;
+  transform: scale(1.1);
+}
+
+.status-dot {
+    position: absolute;
+    right: 0px;
+    bottom: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    z-index: 99;
+    opacity: 1;
+}
+
+.status-dot.active {
+    background-color: #28a745;
+    animation: fadePulseActive 1.8s infinite ease-in-out;
+
+}
+
+.status-dot.passive {
+    background-color: #dc3545;
+        animation: fadePulsePassive 1.8s infinite ease-in-out;
+
+}
+
+/* Fade + Pulse Effekt */
+@keyframes fadePulseActive {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.01);
+        box-shadow: 0 0 0 3px #4ae66f;
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        opacity: 1;
+    }
+}
+@keyframes fadePulsePassive {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.01);
+        box-shadow: 0 0 0 3px #f34456;
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        opacity: 1;
+    }
+}
+
+
+.task-input-container {
+ display: flex;
+ gap: 12px;
+ margin-bottom: 20px;
+}
+
+/* Unified input field style */
+.task-input-container .task-input {
+ flex: 1;
+ padding: 12px 16px;
+ border: 1px solid #d1d5db;
+ border-radius: 8px;
+ font-size: 1rem;
+ background: #f9fafb;
+ transition: all 0.2s ease;
+}
+
+.task-input-container .task-input:focus {
+ outline: none;
+ border-color: #8b5cf6;
+ background: white;
+ box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* Unified button style */
+.add-button {
+ background: #8b5cf6;
+ color: white;
+ border: none;
+ padding: 12px 20px;
+ border-radius: 8px;
+ font-weight: 600;
+ cursor: pointer;
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ transition: all 0.2s ease;
+ font-size: 0.95rem;
+}
+
+.add-button:hover {
+ background: #7c3aed;
+ transform: translateY(-1px);
+}
+
+/* The .general-tasks-section is already styled correctly, but we need to ensure the tasks-list within it doesn't clash with the other .tasks-list */
+.general-tasks-section .tasks-list {
+ display: flex;
+ flex-direction: column;
+ gap: 12px;
+ /* Ensure no extra spacing or conflicting rules */
+ padding-right: 0;
+ max-height: none;
+ overflow-y: visible;
+}
+
+/* Styling for a general task item */
+.task-item.general {
+ background: #f8fafc;
+ border: 1px solid #e2e8f0;
+ border-radius: 8px;
+ width: 100%;
+ padding: 16px;
+ display: flex;
+ justify-content: space-between;
+ align-items: flex-start;
+ transition: all 0.2s ease;
+}
+
+.task-item.general:hover {
+ background: #f1f5f9;
+ border-color: #cbd5e1;
+}
+
+/* Ensure the task content takes up available space and text wraps correctly */
+.task-content {
+ flex: 1;
+ display: flex;
+ flex-direction: column;
+ gap: 8px;
+}
+
+/* Task text styling, with a focus on wrapping */
+.task-text {
+ font-size: 0.9rem;
+ color: #374151;
+ line-height: 1.4;
+ word-break: break-word; /* Ensure long words break */
+ white-space: pre-wrap; /* This is the key for wrapping */
+ overflow-wrap: break-word; /* Another layer of protection */
+}
+
+
+.task-item.general.completed .task-text {
+ text-decoration: line-through;
+ color: #9ca3af;
+}
+
+/* Mention styling for the highlighted username */
+.mention {
+ background: #8b5cf6;
+ color: white;
+ padding: 2px 6px;
+ border-radius: 4px;
+ font-weight: 600;
+ font-size: 0.875rem;
+}
+
+.general-tasks-section .tasks-list {
+  width: 100%;
+}
+
+.generalTaskItem{
+    width: 100% !important  ;
+}
+
+.generalTasksList{
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important; /* Prevents overflow */
+    overflow-x: hidden !important; /* Hides horizontal overflow */
+}
